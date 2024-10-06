@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-End Autism Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="planner-container">
+        <!-- Weekdays Section -->
+        <div class="weekdays">
+            <script>
+                const daysOfWeek = [
+                    { id: 'monday', name: 'Monday' },
+                    { id: 'tuesday', name: 'Tuesday' },
+                    { id: 'wednesday', name: 'Wednesday' },
+                    { id: 'thursday', name: 'Thursday' },
+                    { id: 'friday', name: 'Friday' },
+                    { id: 'saturday', name: 'Saturday' },
+                    { id: 'sunday', name: 'Sunday' }
+                ];
+
+                // Time slots ranging from 06:00 to 23:59, divided by hours
+                const timesOfDay = [
+                    { time: '06:00', label: 'Morning', colorClass: 'morning' },
+                    { time: '07:00', label: 'Morning', colorClass: 'morning' },
+                    { time: '08:00', label: 'Morning', colorClass: 'morning' },
+                    { time: '09:00', label: 'Morning', colorClass: 'morning' },
+                    { time: '10:00', label: 'Morning', colorClass: 'morning' },
+                    { time: '11:00', label: 'Morning', colorClass: 'morning' },
+                    { time: '12:00', label: 'Mid-Day', colorClass: 'mid-day' },
+                    { time: '13:00', label: 'Mid-Day', colorClass: 'mid-day' },
+                    { time: '14:00', label: 'Mid-Day', colorClass: 'mid-day' },
+                    { time: '15:00', label: 'Mid-Day', colorClass: 'mid-day' },
+                    { time: '16:00', label: 'Mid-Day', colorClass: 'mid-day' },
+                    { time: '17:00', label: 'Mid-Day', colorClass: 'mid-day' },
+                    { time: '18:00', label: 'Evening', colorClass: 'evening' },
+                    { time: '19:00', label: 'Evening', colorClass: 'evening' },
+                    { time: '20:00', label: 'Evening', colorClass: 'evening' },
+                    { time: '21:00', label: 'Evening', colorClass: 'evening' },
+                    { time: '22:00', label: 'Evening', colorClass: 'evening' },
+                    { time: '23:00', label: 'Evening', colorClass: 'evening' },
+                ];
+
+                // Generate the weekdays and time slots with appropriate colors
+                document.write(daysOfWeek.map(day => `
+                    <div class="day-column" id="${day.id}">
+                        <div class="day-header">${day.name}</div>
+                        ${timesOfDay.map(slot => `
+                            <div class="time-slot ${slot.colorClass}" data-time="${slot.time}">
+                                <span class="slot-time">${slot.time}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                `).join(''));
+            </script>
+        </div>
+
+        <!-- Icons Section -->
+        <div class="icons-container">
+            <h2>Activities</h2>
+            <div class="icons-list" id="iconsList">
+                <script>
+                    const activities = [
+                        { activity: 'sport', icon: '⚽' },
+                        { activity: 'eating', icon: '🍽️' },
+                        { activity: 'drinking', icon: '☕' },
+                        { activity: 'reading', icon: '📖' },
+                        { activity: 'sleeping', icon: '🛌' },
+                        { activity: 'working', icon: '💼' },
+                        { activity: 'shopping', icon: '🛒' },
+                        { activity: 'exercise', icon: '🏋️' },
+                        { activity: 'music', icon: '🎵' },
+                        { activity: 'meditation', icon: '🧘' },
+                        { activity: 'movie', icon: '🎬' },
+                        { activity: 'travel', icon: '✈️' },
+                        { activity: 'gaming', icon: '🎮' },
+                        { activity: 'cooking', icon: '🍳' },
+                        { activity: 'painting', icon: '🎨' },
+                        { activity: 'cycling', icon: '🚴' },
+                        { activity: 'yoga', icon: '🧘‍♀️' },
+                        { activity: 'dance', icon: '💃' },
+                        { activity: 'hiking', icon: '🥾' },
+                        { activity: 'photography', icon: '📷' },
+                        { activity: 'gardening', icon: '🌱' },
+                        { activity: 'writing', icon: '✍️' },
+                        { activity: 'volunteering', icon: '🤝' },
+                        { activity: 'knitting', icon: '🧶' },
+                        { activity: 'surfing', icon: '🏄‍♂️' },
+                        { activity: 'swimming', icon: '🏊' },
+                        { activity: 'skiing', icon: '🎿' },
+                        { activity: 'rock_climbing', icon: '🧗' },
+                        { activity: 'fishing', icon: '🎣' },
+                        { activity: 'running', icon: '🏃' },
+                        { activity: 'basketball', icon: '🏀' },
+                        { activity: 'tennis', icon: '🎾' },
+                        { activity: 'badminton', icon: '🏸' },
+                        { activity: 'boxing', icon: '🥊' },
+                        { activity: 'baseball', icon: '⚾' },
+                        { activity: 'golf', icon: '⛳' },
+                        { activity: 'karate', icon: '🥋' },
+                        { activity: 'jogging', icon: '🏃‍♂️' },
+                        { activity: 'pilates', icon: '🤸‍♀️' },
+                        { activity: 'salsa', icon: '💃' },
+                        { activity: 'kitesurfing', icon: '🪁' },
+                        { activity: 'snowboarding', icon: '🏂' },
+                        { activity: 'ice_skating', icon: '⛸️' },
+                        { activity: 'martial_arts', icon: '🥋' },
+                        { activity: 'climbing', icon: '🧗‍♂️' },
+                        { activity: 'rowing', icon: '🚣' },
+                        { activity: 'trampoline', icon: '🤸‍♂️' }
+                    ];
+
+                    document.write(activities.map(act => `
+                        <div class="icon" draggable="true" data-activity="${act.activity}">
+                            ${act.icon}
+                        </div>
+                    `).join(''));
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

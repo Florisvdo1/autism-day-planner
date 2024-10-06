@@ -1,0 +1,166 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e8f0fe;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+}
+
+.planner-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 80vh;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.weekdays {
+    flex: 4;
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+.day-column {
+    flex: 1;
+    margin: 0 5px;
+    background-color: #fdfdff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.day-header {
+    background-color: #1976d2;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Time Slot Styles */
+.time-slot {
+    padding: 8px;
+    min-height: 50px;
+    border-bottom: 1px solid #e1e1e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+    position: relative;
+}
+
+/* Color Coding for Time Periods */
+.morning {
+    background-color: #FFF9C4; /* Light Yellow */
+}
+
+.mid-day {
+    background-color: #BBDEFB; /* Light Blue */
+}
+
+.evening {
+    background-color: #1565C0; /* Dark Blue */
+    color: white;
+}
+
+.time-slot.drag-over {
+    background-color: #e3f2fd;
+}
+
+/* Icons Section */
+.icons-container {
+    flex: 1;
+    padding: 15px;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icons-container h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.icons-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: grab;
+    transition: transform 0.2s ease;
+}
+
+.icon.dragging {
+    opacity: 0.6;
+    transform: scale(1.2);
+}
+
+/* Delete Button on Icons in Time Slots */
+.delete-btn {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .planner-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .icons-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .weekdays {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .day-column {
+        min-width: 120px;
+    }
+}
