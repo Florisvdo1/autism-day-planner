@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -9,13 +9,16 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #e8f0fe;
     display: flex;
-    min-height: 100vh;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
+/* Planner Container */
 .planner-container {
     display: flex;
+    flex-direction: row;
     width: 100%;
     max-width: 1200px;
     height: 80vh;
@@ -23,9 +26,9 @@ body {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
 }
 
+/* Weekdays and Time Slots */
 .weekdays {
     flex: 4;
     display: flex;
@@ -35,8 +38,8 @@ body {
 
 .day-column {
     flex: 1;
+    background-color: #fff;
     margin: 0 5px;
-    background-color: #fdfdff;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -51,7 +54,7 @@ body {
     font-weight: bold;
 }
 
-/* Time Slot Styles */
+/* Time Slot Styling */
 .time-slot {
     padding: 8px;
     min-height: 50px;
@@ -59,8 +62,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background-color 0.2s ease;
     position: relative;
+    transition: background-color 0.2s ease;
 }
 
 /* Color Coding for Time Periods */
@@ -77,33 +80,12 @@ body {
     color: white;
 }
 
+/* Drag Over Style */
 .time-slot.drag-over {
     background-color: #e3f2fd;
 }
 
-/* Icons Section */
-.icons-container {
-    flex: 1;
-    padding: 15px;
-    background-color: #f5f5f5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.icons-container h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.icons-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-height: 100%;
-    overflow-y: auto;
-}
-
+/* Icon Style */
 .icon {
     position: relative;
     width: 50px;
@@ -125,7 +107,7 @@ body {
     transform: scale(1.2);
 }
 
-/* Delete Button on Icons in Time Slots */
+/* Delete Button */
 .delete-btn {
     position: absolute;
     top: -5px;
